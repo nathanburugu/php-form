@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<?php
+$firstname=$lastname=$email=$course='';
+$errors=array('firstname'=>'','lastname'=>'','email'=>'','course'=>'');
+if(isset($_POST['save'])){
+    //checking for firstname validation
+    if(empty($_POST['firstname'])){
+        $errors['firstname']='firstname cannot be empty<br/>';
+    }else{
+        $firstname=$_POST['firstname'];
+        if(!preg_match('/^[a-zA-Z\s]+$/',$firstname)){
+            $errors['firstname']='firstname must be letters and spaces only';
+        }
+    }
+    //checking for lastname validation
+    if(empty($_POST['lastname'])){
+        $errors['lastname']='lastname cannot be empty<br/>';
+    }else{
+        $lastname=$_POST['lastname'];
+        if(!preg_match('/^[a-zA-Z\s]+$/',$lastname)){
+            $errors['lastname']='lastname must be letters and spaces only';
+        }
+    }
+    //checking for course validation
+    if(empty($_POST['course'])){
+        $errors['course']='course cannot be empty<br/>';
+    }else{
+        $course=$_POST[''];
+        if(!preg_match('/^[a-zA-Z\s]+$/',$course)){
+            $errors['course']='course must be letters and spaces only';
+        }
+    }
+    //checking for email validation
+    if(empty($_POST['email'])){
+        $errors['email']='email cannot be empty<br/>';
+    }else{
+        $email=$_POST['email'];
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errors['email']='email must be a valid address';
+        }
+    }
+}
+
+?>
+<body>
+<div class="col-md-4 offset-md-4">
+<h5>Enter student details</h5>
+<form action="index.php" method="POST">
+    <div class="form-group">
+        <input type="text" name="firstname" placeholder="Enter firstname" class="form-control" value="<?php echo htmlspecialchars($firstname); ?>">
+        <div class="text-danger"><?php echo $errors['firstname']; ?></div>
+        </div>
+
+        <div class="form-group">
+        <input type="text" name="lastname" placeholder="Enter lastname" class="form-control" value="<?php echo ($lastname); ?>">
+        <div class="text-danger"><?php echo $errors['lastname']; ?></div>
+        </div>
+
+        <div class="form-group">
+        <input type="text" name="email" placeholder="Enter email" class="form-control" value="<?php echo $email ?>">
+        <div class="text-danger"><?php echo $errors['email']; ?></div>
+        </div>
+
+        <div class="form-group">
+        <input type="text" name="course" placeholder="Enter course" class="form-control" value="<?php echo $course ?>">
+        <div class="text-danger"><?php echo $errors['course']; ?></div>
+        </div>
+        <button name="save" class="btn btn-primary">save details</button>
+    </form>
+    </div>
+</body>
+</html>
