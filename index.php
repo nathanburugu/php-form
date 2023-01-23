@@ -1,3 +1,6 @@
+<?php
+include("dbh.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    
 </head>
+
 <?php
 $firstname=$lastname=$email=$course='';
 $errors=array('firstname'=>'','lastname'=>'','email'=>'','course'=>'');
@@ -33,7 +38,7 @@ if(isset($_POST['save'])){
     if(empty($_POST['course'])){
         $errors['course']='course cannot be empty<br/>';
     }else{
-        $course=$_POST[''];
+        $course=$_POST['course'];
         if(!preg_match('/^[a-zA-Z\s]+$/',$course)){
             $errors['course']='course must be letters and spaces only';
         }
@@ -47,6 +52,35 @@ if(isset($_POST['save'])){
             $errors['email']='email must be a valid address';
         }
     }
+    if(array_filter($errors)){
+        //echo 'there are errors in the form';
+    }else{
+        //echo 'no errors in the form';
+        /*$statement = $databaseConnection ->prepare(
+            "INSERT INTO sample(firstname, lastname, email, course)
+            VALUES ($firstname, $lastname, $email, $course)");
+            $statement ->execute();*/
+            try
+            {
+                $query = "INSERT INTO sample(firstname, lastname, email, course) VALUES (:firstname,:lastname,:email,:course)";
+                $query_run = $databaseConnection ->prepare($query);
+                $data = [
+                    ':firstname' => $firstname,
+                    ':lastname' => $lastname,
+                    ':email' => $email,
+                    ':course' => $course,
+                ];
+                $query_execute = $query_run-> execute($data);
+                if($query_execute){
+                    echo '<script> alert("Data added Successfully")</script>';
+                }else{
+                    echo '<script> alert("Data NOT added Successfully")</script>';
+                }
+            }catch(PDOException $err){
+                echo $err->getmessage();
+            }
+    }
+
 }
 
 ?>
