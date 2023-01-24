@@ -11,6 +11,7 @@ include("dbh.php");
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <?php
 $firstname=$lastname=$email=$course='';
 $errors=array('firstname'=>'','lastname'=>'','email'=>'','course'=>'');
@@ -100,6 +101,30 @@ if(isset($_POST['save'])){
     </div>
   </div>
 </nav>
-<h1>Welcome to Software Dev School</h1>
+<div class="col-md-4 offset-md-4">
+<h5>Enter student details</h5>
+<form action="index.php" method="POST">
+    <div class="form-group">
+        <input type="text" name="firstname" placeholder="Enter firstname" class="form-control" value="<?php echo htmlspecialchars($firstname); ?>">
+        <div class="text-danger"><?php echo $errors['firstname']; ?></div>
+        </div>
+
+        <div class="form-group">
+        <input type="text" name="lastname" placeholder="Enter lastname" class="form-control" value="<?php echo ($lastname); ?>">
+        <div class="text-danger"><?php echo $errors['lastname']; ?></div>
+        </div>
+
+        <div class="form-group">
+        <input type="text" name="email" placeholder="Enter email" class="form-control" value="<?php echo $email ?>">
+        <div class="text-danger"><?php echo $errors['email']; ?></div>
+        </div>
+
+        <div class="form-group">
+        <input type="text" name="course" placeholder="Enter course" class="form-control" value="<?php echo $course ?>">
+        <div class="text-danger"><?php echo $errors['course']; ?></div>
+        </div>
+        <button name="save" class="btn btn-primary">save details</button>
+    </form>
+    </div>
 </body>
 </html>
