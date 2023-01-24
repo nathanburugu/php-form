@@ -102,7 +102,7 @@ if(isset($_POST['save'])){
   </div>
 </nav>
 <div class="col-md-4 offset-md-4">
-<h5>Enter student details</h5>
+<h5 class="headings">Enter student details</h5>
 <form action="index.php" method="POST">
     <div class="form-group">
         <input type="text" name="firstname" placeholder="Enter firstname" class="form-control" value="<?php echo htmlspecialchars($firstname); ?>">

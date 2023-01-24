@@ -100,6 +100,32 @@ if(isset($_POST['save'])){
     </div>
   </div>
 </nav>
-<h1>Welcome to Software Dev School</h1>
+
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="one">
+                    <h1 class="message">SOFTWARE DEVELOPMENT UNIVERSITY <br> TRANSFORMING LIVES SINCE 1999</h1>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="three"> 
+                    <h1 class="mission">OUR MISSION</h1>
+                   <p class="mission"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni labore eius quibusdam provident cupiditate, nobis eos ad aut, perspiciatis alias inventore harum odit exercitationem. Architecto laudantium quae dolores rerum?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni labore eius quibusdam provident cupiditate, nobis eos ad aut, perspiciatis alias inventore harum odit exercitationem. Architecto laudantium quae dolores rerum?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni labore eius quibusdam provident cupiditate, nobis eos ad aut, perspiciatis alias inventore harum odit exercitationem. Architecto laudantium quae dolores rerum?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni labore eius quibusdam provident cupiditate, nobis eos ad aut, perspiciatis alias inventore harum odit exercitationem. Architecto laudantium quae dolores rerum?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, magni labore eius quibusdam provident cupiditate, nobis eos ad aut, perspiciatis alias inventore harum odit exercitationem. Architecto laudantium quae dolores rerum?
+</p>
+                <div class="mission">
+                <button class="btn btn-primary">Apply</button>
+                </div>
+                </div>
+            </div>
+            
+        </div>
 </body>
 </html>

@@ -30,7 +30,7 @@ include("dbh.php");
 </nav>
 
     <div class="container">
-        <h1>All Students Details</h1>
+        <h1 class="headings">All Students Details</h1>
         <table class="table table-hover table-bordered table sm" style="background-color: rgb(227, 242, 253, 0.7);">
             <tr>
                 <th>Firstname</th>
