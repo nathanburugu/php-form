@@ -54,14 +54,14 @@ include("dbh.php");
                 <td><?=$row['lastname'];?></td>
                 <td><?=$row['email'];?></td>
                 <td><?=$row['course'];?></td>
-               <!-- <td>
+                <td>
                     <a href="student-edit.php?Id=<?=$row['Id']; ?>" class="btn btn-primary" name="Edit_students">Edit</a>
                 </td>
                  <td> 
                     <form action="crud.php" method="POST">
-                        <button value="<?=$row['Id']; ?>" class="btn btn-danger btn sm" name="delete_student">Delete</button>
+                        <button value="<?=$row['Id']; ?>" class="btn btn-danger btn-sm" name="delete_student">Delete</button>
                     </form>
-                </td> -->
+                </td> 
             </tr>
             <?php
                 }
